@@ -1,0 +1,89 @@
+
+<div class="container" *ngIf="pin">
+  <section id="card">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          {{pin.title}}
+        </mat-card-title>
+      </mat-card-header>
+      <div id="">
+      <mat-card-content>
+        <img mat-card-image src="{{pin.link}}">
+
+      </mat-card-content>
+
+    </div>
+    <mat-card-footer>
+      <div>
+        <button mat-button>
+          <img src="{{pin.author.avatar}}" alt="">
+          <span>{{pin.author.name}}</span>
+        </button>
+      </div>
+      <div>
+        <button mat-button id="comment">
+          <mat-icon>comment</mat-icon>
+          <span>{{pin.comments.length}}</span>
+        </button>
+      </div>
+      <div>
+        <button mat-button  (click)="like(pin)">
+          <mat-icon *ngIf="!auth.isAuthenticated() || !isLikedBy(pin.likers, auth._email)" class="unliked" svgIcon="thumb-up-outline">
+          </mat-icon>
+          <mat-icon *ngIf="auth.isAuthenticated() && isLikedBy(pin.likers, auth._email)" class="liked" svgIcon="thumb-up">
+          </mat-icon>
+          <span>{{pin.likers.length}}</span>
+        </button>
+      </div>
+      <div>
+        <button mat-button id="calendar">
+          <mat-icon svgIcon="calendar-month-outline"></mat-icon>
+          <span>{{pin.createdAt | date}}</span>
+        </button>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+  </section>
+
+
+  <section id="comment_form">
+    <div id="comment_trigger">
+      <button mat-button (click)="toggleCommentBox()">
+        <mat-icon>add_comment</mat-icon>
+        <span>Add new comment</span>
+      </button>
+    </div>
+    <div id="comment_box" *ngIf="commentBoxIsOpen">
+      <mat-form-field class="full-width">
+        <textarea matInput [(ngModel)]="comment.content" placeholder="Your comment here..."></textarea>
+      </mat-form-field>
+      <button mat-button (click)="addComment(); toggleCommentBox()">Add your comment</button>
+    </div>
+  </section>
+
+  <section id="commentsWrapper">
+    <h3 *ngIf="pin.comments.length < 2">{{pin.comments.length}} comment</h3>
+    <h3 *ngIf="pin.comments.length >= 2">{{pin.comments.length}} comments</h3>
+
+    <div class="comments" *ngFor="let comment of pin.comments">
+      <div class="comment">
+        <div class="row">
+          <div class="avatar">
+           <img src="{{comment.avatar}}" alt="" width="60">
+          </div>
+          <div class="author">{{comment.author}}</div>
+        </div>
+        <div class="row">
+          <div class="content">{{comment.content}}</div>
+        </div>
+        <div class="row">
+          <div class="date">
+            <p>{{comment.createdAt | date : 'medium'}}</p>
+            <!-- <p>{{getCommentTime(comment.createdAt)}}</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

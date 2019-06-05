@@ -1,0 +1,108 @@
+#categories {
+  background-color: lightgray;
+  color: darkblue;
+  margin-bottom: 30px;
+}
+.container {
+  width: 900px;
+  margin: 50px auto;
+  // background-color: #1E233A;
+}
+.mat-card-title {
+  font-size: 2em;
+  color: darkblue;
+}
+
+.mat-card-footer {
+  display: flex;
+  justify-content: space-around;
+  span {
+    margin-left: 5px;
+    color: darkblue;
+  }
+  img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+  }
+#comment, #calendar {
+  color: darkblue;
+}
+ }
+.liked, .unliked {
+  color: blue;
+}
+
+#card {
+  margin-bottom: 30px;
+}
+#comment_form {
+  margin-bottom: 30px;
+}
+#comment_trigger {
+  margin-bottom: 20px;
+  button {
+    background-color: blue;
+  }
+  .mat-icon, span {
+    color: #fff;
+  }
+  span {
+    margin-left: 10px;
+  }
+
+}
+#comment_box {
+  button {
+    background-color: green;
+    color: #fff;
+  }
+
+}
+#commentsWrapper {
+  padding: 20px;
+  h3 {
+   margin-bottom: 15px;
+   margin-left: 15px;
+   color: darkblue;
+}
+}
+
+
+.mat-form-field {
+  width: 100%;
+}
+
+.comments {
+  padding: 10px;
+}
+.comment {
+  // display: table;
+  padding: 10px;
+  width: 800px;
+  margin-bottom: 10px;
+  background-color: lightgray;
+
+}
+.row {
+  // display: flex;
+  background-color: #fff;
+  margin-bottom: 5px;
+  // align-content: space-around;
+  padding: 10px;
+}
+.avatar {
+}
+.author {
+}
+.content {
+  overflow-y: auto;
+  font-size: 1.1em;
+}
+.date {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+

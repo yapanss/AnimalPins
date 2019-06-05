@@ -1,0 +1,15 @@
+#categories {
+  background-color: lightgray;
+  color: darkblue;
+  button {
+    font-weight: bold;
+  }
+
+  button:hover {
+    background-color: #3F51B5;
+    color: white;
+    border-radius: 0;
+  }
+
+  margin-bottom: 30px;
+}

@@ -1,0 +1,35 @@
+<div id="container">
+  <mat-card>
+    <mat-card-title>New Pin</mat-card-title>
+    <mat-card-content>
+        <form #pinForm="ngForm" novalidate (ngSubmit)="createPin()">
+            <mat-form-field class="full-width">
+                <input matInput type="text" placeholder="Title"
+                name="title" [(ngModel)]="pin.title" required>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <input matInput type="text" placeholder="Url" name="link" [(ngModel)]="pin.link" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Category</mat-label>
+                <mat-select [(value)]="pin.category">
+                  <mat-option value="amphibians">Amphibians</mat-option>
+                  <mat-option value="birds">Birds</mat-option>
+                  <mat-option value="fishes">Fishes</mat-option>
+                  <mat-option value="mamals">Mamals</mat-option>
+                  <mat-option value="reptiles">Reptiles</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button mat-raised-button type="submit" color="primary">Submit</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+<button mat-button>
+  <mat-icon svgIcon="thumb-up-outline"></mat-icon>
+  View source
+</button>
+</div>
+

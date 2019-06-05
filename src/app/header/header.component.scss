@@ -1,0 +1,18 @@
+#avatar {
+  cursor: pointer;
+}
+.mat-toolbar-row {
+  display: flex;
+  justify-content: space-between;
+}
+button:hover {
+  background-color: lightgray;
+  color: darkblue;
+}
+#menu {
+  display: flex;
+  justify-content: space-around;
+}
+.rounded-circle {
+  border-radius: 50%;
+}

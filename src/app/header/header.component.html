@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>AnimalPins</span>
+    <div id="menu">
+      <button mat-button routerLink="/pins">Home</button>
+    <button mat-button *ngIf="auth.isAuthenticated()" routerLink="/new">New Pin</button>
+    <button mat-button [matMenuTriggerFor]="menu2" *ngIf="auth.isAuthenticated()">My Pins</button>
+
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item routerLink="/mypins">All</button>
+      <button mat-menu-item routerLink="/mypins/amphibians">Amphibians</button>
+      <button mat-menu-item routerLink="/mypins/birds">Birds</button>
+      <button mat-menu-item routerLink="/mypins/fishes">Fishes</button>
+      <button mat-menu-item routerLink="/mypins/mamals">Mamals</button>
+      <button mat-menu-item routerLink="/mypins/reptiles">Reptiles</button>
+    </mat-menu>
+
+    <button mat-button (click)="auth.login()" *ngIf="!auth.isAuthenticated()">Login</button>
+
+
+    <div [matMenuTriggerFor]="menu" id="avatar">
+      <img src={{auth._avatar}} width="40" height="40" class="rounded-circle" *ngIf="auth.isAuthenticated()">
+    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="auth.logout()">Logout</button>
+    </mat-menu>
+    </div>
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
